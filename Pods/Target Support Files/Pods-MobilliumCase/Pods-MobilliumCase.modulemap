@@ -1,0 +1,6 @@
+framework module Pods_MobilliumCase {
+  umbrella header "Pods-MobilliumCase-umbrella.h"
+
+  export *
+  module * { export * }
+}

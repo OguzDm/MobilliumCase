@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A427A5E15031935C9253A3A0 /* Pods_MobilliumCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FB527AE1794C4839C5F5F8B /* Pods_MobilliumCase.framework */; };
 		B910AD2E26CACD3700E6A205 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910AD2D26CACD3700E6A205 /* AppDelegate.swift */; };
 		B910AD3026CACD3700E6A205 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910AD2F26CACD3700E6A205 /* SceneDelegate.swift */; };
 		B910AD3226CACD3700E6A205 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B910AD3126CACD3700E6A205 /* ViewController.swift */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6FB527AE1794C4839C5F5F8B /* Pods_MobilliumCase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilliumCase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7ED0D1694F50101D96767D4F /* Pods-MobilliumCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilliumCase.release.xcconfig"; path = "Target Support Files/Pods-MobilliumCase/Pods-MobilliumCase.release.xcconfig"; sourceTree = "<group>"; };
 		B910AD2A26CACD3700E6A205 /* MobilliumCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilliumCase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B910AD2D26CACD3700E6A205 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B910AD2F26CACD3700E6A205 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +27,7 @@
 		B910AD3626CACD3800E6A205 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B910AD3926CACD3800E6A205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B910AD3B26CACD3800E6A205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8CF4988E0068986578BA2A8 /* Pods-MobilliumCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilliumCase.debug.xcconfig"; path = "Target Support Files/Pods-MobilliumCase/Pods-MobilliumCase.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A427A5E15031935C9253A3A0 /* Pods_MobilliumCase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8936D56182246123F4CF9E2E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6FB527AE1794C4839C5F5F8B /* Pods_MobilliumCase.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A6982B5B9659C5216611B80C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C8CF4988E0068986578BA2A8 /* Pods-MobilliumCase.debug.xcconfig */,
+				7ED0D1694F50101D96767D4F /* Pods-MobilliumCase.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B910AD2126CACD3700E6A205 = {
 			isa = PBXGroup;
 			children = (
 				B910AD2C26CACD3700E6A205 /* MobilliumCase */,
 				B910AD2B26CACD3700E6A205 /* Products */,
+				A6982B5B9659C5216611B80C /* Pods */,
+				8936D56182246123F4CF9E2E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B910AD3E26CACD3800E6A205 /* Build configuration list for PBXNativeTarget "MobilliumCase" */;
 			buildPhases = (
+				A8D5C43EF5A6DFB564567759 /* [CP] Check Pods Manifest.lock */,
 				B910AD2626CACD3700E6A205 /* Sources */,
 				B910AD2726CACD3700E6A205 /* Frameworks */,
 				B910AD2826CACD3700E6A205 /* Resources */,
+				EF5C0F0D64FE9663436E9A25 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A8D5C43EF5A6DFB564567759 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobilliumCase-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF5C0F0D64FE9663436E9A25 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobilliumCase/Pods-MobilliumCase-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobilliumCase/Pods-MobilliumCase-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobilliumCase/Pods-MobilliumCase-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B910AD2626CACD3700E6A205 /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		B910AD3F26CACD3800E6A205 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8CF4988E0068986578BA2A8 /* Pods-MobilliumCase.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		B910AD4026CACD3800E6A205 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7ED0D1694F50101D96767D4F /* Pods-MobilliumCase.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
