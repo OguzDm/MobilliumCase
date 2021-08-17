@@ -7,11 +7,18 @@
 
 import Foundation
 
+protocol UpcomingMovieViewModelDelegate: AnyObject {
+    func getUpcomingMovies()
+}
+
 class UpcomingMovieViewModel {
     
+    weak var delegate: UpcomingMovieViewModelDelegate?
+    var movies = [MovieResults]()
     func fetchUpcomings(){
         Service.shared.fetchMovies(endpoint: .Upcoming) { response in
-            print(response.results[0].original_title)
+            self.movies = response.results
+            self.delegate?.getUpcomingMovies()
         }
     }
 }

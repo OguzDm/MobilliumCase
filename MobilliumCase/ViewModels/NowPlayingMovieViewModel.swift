@@ -7,11 +7,18 @@
 
 import Foundation
 
+protocol NowPlayingMovieViewModelDelegate: AnyObject {
+    func getNowPlayingMovies()
+}
+
 class NowPlayingMovieViewModel {
     
+    weak var delegate: NowPlayingMovieViewModelDelegate?
+    var movies = [MovieResults]()
     func fetchNowPlaying(){
         Service.shared.fetchMovies(endpoint: .NowPlaying) { response in
-            print(response.results[0].original_title)
+            self.movies = response.results
+            self.delegate?.getNowPlayingMovies()
         }
     }
 }
