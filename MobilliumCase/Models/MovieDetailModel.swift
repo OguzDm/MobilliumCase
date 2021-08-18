@@ -14,13 +14,10 @@ struct MovieDetailModel: Codable {
     let runtime: Int?
     let vote_average: Double
     let backdrop_path: String
+    let imdb_id: String
     
     var releaseYear:String {
         let year = release_date.split(separator: "-").first?.description ?? "TBA"
         return year
     }
-}
-
-struct Genres: Codable {
-    let name: String
 }

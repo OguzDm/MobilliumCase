@@ -23,12 +23,23 @@ class Service {
             case .success(let model):
                 completionHandler(model)
             case .failure(let error):
-                print(error.errorDescription)
+                print(error.localizedDescription)
             }
         }
     }
     
     func searchMovies(){
         
+    }
+    
+    func fetchDetails(with id: Int,completionHandler: @escaping (MovieDetailModel) -> ()) {
+        AF.request(Constants.baseURL + "\(id)?" + "api_key=\(Constants.apiKey)").responseDecodable(of: MovieDetailModel.self) { response in
+            switch response.result {
+            case .success(let model):
+                completionHandler(model)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

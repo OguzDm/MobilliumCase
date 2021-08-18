@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayingMovieViewModelDelegate{
+final class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayingMovieViewModelDelegate{
     func getNowPlayingMovies() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -20,10 +20,10 @@ class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayingMovi
         }
     }
     
-    var collectionView: UICollectionView!
-    let upComingViewModel = UpcomingMovieViewModel()
-    let nowPlayingViewModel = NowPlayingMovieViewModel()
-    let searchController = UISearchController()
+    private var collectionView: UICollectionView!
+    private let upComingViewModel = UpcomingMovieViewModel()
+    private let nowPlayingViewModel = NowPlayingMovieViewModel()
+    private let searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayingMovi
     }
     
 
-    let gridThenList = UICollectionViewCompositionalLayout { section, env -> NSCollectionLayoutSection? in
+    private let gridThenList = UICollectionViewCompositionalLayout { section, env -> NSCollectionLayoutSection? in
         
         if section == 0 {
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(256))
@@ -63,7 +63,7 @@ class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayingMovi
         )
     }
     
-    func configureCollectionView(){
+    private func configureCollectionView(){
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: gridThenList)
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -83,7 +83,18 @@ class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayingMovi
 }
 
 extension MainView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let detailVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "MovieDetailView") as! MovieDetailView
+        switch indexPath.section {
+        case 0:
+            detailVC.movieID = nowPlayingViewModel.movies[indexPath.item].id
+            navigationController?.pushViewController(detailVC, animated: true)
+        default:
+            detailVC.movieID = upComingViewModel.movies[indexPath.item].id
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
 }
 
 extension MainView: UICollectionViewDataSource {
