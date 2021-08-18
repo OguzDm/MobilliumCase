@@ -57,6 +57,7 @@ final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate, W
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.systemBackground
+        collectionView.alwaysBounceVertical = false
         collectionView.register(UINib.loadNib(name: SimilarCollectionViewCell.reuseIdentifier), forCellWithReuseIdentifier: SimilarCollectionViewCell.reuseIdentifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)

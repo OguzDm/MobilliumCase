@@ -17,7 +17,6 @@ final class SliderCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
     }
     
     func configure(image: String, name: String, description: String){
