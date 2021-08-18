@@ -42,4 +42,16 @@ class Service {
             }
         }
     }
+    
+    func fetchSimilarMovies(with id: Int,completionHandler: @escaping (SimilarMoviesModel) -> ()){
+        AF.request(Constants.baseURL + "\(id)/" + "similar?" + "api_key=\(Constants.apiKey)").responseDecodable(of: SimilarMoviesModel.self) {
+            response in
+            switch response.result {
+            case .success(let model):
+                completionHandler(model)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

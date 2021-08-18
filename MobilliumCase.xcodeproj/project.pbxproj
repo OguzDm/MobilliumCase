@@ -23,6 +23,8 @@
 		B984F00C26CD2592000FA6CA /* SimilarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984F00A26CD2592000FA6CA /* SimilarCollectionViewCell.swift */; };
 		B984F00D26CD2592000FA6CA /* SimilarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B984F00B26CD2592000FA6CA /* SimilarCollectionViewCell.xib */; };
 		B984F00F26CD2B12000FA6CA /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984F00E26CD2B12000FA6CA /* MovieDetailViewModel.swift */; };
+		B984F01126CD3DE0000FA6CA /* SimilarMoviesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984F01026CD3DE0000FA6CA /* SimilarMoviesModel.swift */; };
+		B984F01326CD3ED6000FA6CA /* SimilarMoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B984F01226CD3ED6000FA6CA /* SimilarMoviesViewModel.swift */; };
 		B994691126CAD113001D0150 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B994691026CAD113001D0150 /* Constants.swift */; };
 		B994691326CAD26D001D0150 /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B994691226CAD26D001D0150 /* MovieModel.swift */; };
 		B994691526CAD282001D0150 /* MovieDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B994691426CAD282001D0150 /* MovieDetailModel.swift */; };
@@ -52,6 +54,8 @@
 		B984F00A26CD2592000FA6CA /* SimilarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarCollectionViewCell.swift; sourceTree = "<group>"; };
 		B984F00B26CD2592000FA6CA /* SimilarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SimilarCollectionViewCell.xib; sourceTree = "<group>"; };
 		B984F00E26CD2B12000FA6CA /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		B984F01026CD3DE0000FA6CA /* SimilarMoviesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMoviesModel.swift; sourceTree = "<group>"; };
+		B984F01226CD3ED6000FA6CA /* SimilarMoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarMoviesViewModel.swift; sourceTree = "<group>"; };
 		B994691026CAD113001D0150 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B994691226CAD26D001D0150 /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		B994691426CAD282001D0150 /* MovieDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailModel.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			children = (
 				B994691226CAD26D001D0150 /* MovieModel.swift */,
 				B994691426CAD282001D0150 /* MovieDetailModel.swift */,
+				B984F01026CD3DE0000FA6CA /* SimilarMoviesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,6 +162,7 @@
 				B994691A26CAD5EF001D0150 /* NowPlayingMovieViewModel.swift */,
 				B994691C26CAD6A8001D0150 /* SearchViewModel.swift */,
 				B984F00E26CD2B12000FA6CA /* MovieDetailViewModel.swift */,
+				B984F01226CD3ED6000FA6CA /* SimilarMoviesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -299,9 +305,11 @@
 				B994691326CAD26D001D0150 /* MovieModel.swift in Sources */,
 				B91E884826CC8097005C8B85 /* ListCollectionViewCell.swift in Sources */,
 				B994691D26CAD6A8001D0150 /* SearchViewModel.swift in Sources */,
+				B984F01126CD3DE0000FA6CA /* SimilarMoviesModel.swift in Sources */,
 				B910AD3026CACD3700E6A205 /* SceneDelegate.swift in Sources */,
 				B91E883F26CC77A4005C8B85 /* UINibExtension.swift in Sources */,
 				B994691726CAD3B6001D0150 /* UpcomingMovieViewModel.swift in Sources */,
+				B984F01326CD3ED6000FA6CA /* SimilarMoviesViewModel.swift in Sources */,
 				B984F00C26CD2592000FA6CA /* SimilarCollectionViewCell.swift in Sources */,
 				B994691126CAD113001D0150 /* Constants.swift in Sources */,
 			);

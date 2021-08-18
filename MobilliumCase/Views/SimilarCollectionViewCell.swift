@@ -16,6 +16,7 @@ class SimilarCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        movieImageView.layer.cornerRadius = 16
     }
     
     func configure(image:String, name: String){
