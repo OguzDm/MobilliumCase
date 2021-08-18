@@ -40,14 +40,14 @@ final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate, W
             self.movieImageView.kf.setImage(with: imageURL)
             self.ratingLabel.text = String(response.vote_average) + "/10"
             self.dateLabel.text = response.release_date
-            self.nameLabel.text = response.original_title
+            self.nameLabel.text = response.title + " (\(response.releaseYear))"
             self.descriptionLabel.text = response.overview
             self.imdbID = response.imdb_id
         }
         similarMoviesViewModel.fetchSimilarMovies(with: movieID!)
     }
     @IBAction func imdbButtonTapped(_ sender: UIButton) {
-        let url = URL(string: "https://www.imdb.com/title/\(imdbID)")!
+        let url = URL(string: Constants.imdbMoviePageURL + imdbID )!
         webView.load(URLRequest(url: url))
         view = webView
     }

@@ -8,10 +8,9 @@
 import Foundation
 
 struct MovieDetailModel: Codable {
-    let original_title: String
+    let title: String
     let overview: String
     let release_date: String
-    let runtime: Int?
     let vote_average: Double
     let backdrop_path: String
     let imdb_id: String
