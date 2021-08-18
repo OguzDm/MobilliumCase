@@ -7,7 +7,13 @@
 
 import UIKit
 
-final class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayingMovieViewModelDelegate{
+final class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayingMovieViewModelDelegate, SearchViewModelDelegate{
+    func getSearchResults() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
     func getNowPlayingMovies() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
@@ -21,21 +27,32 @@ final class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayi
     }
     
     private var collectionView: UICollectionView!
+    private var tableView: UITableView!
     private let upComingViewModel = UpcomingMovieViewModel()
     private let nowPlayingViewModel = NowPlayingMovieViewModel()
+    private let searchViewModel = SearchViewModel()
     private let searchController = UISearchController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTableView()
+        configureSearchController()
         navigationItem.searchController = searchController
+        searchViewModel.delegate = self
         upComingViewModel.delegate = self
         nowPlayingViewModel.delegate = self
         upComingViewModel.fetchUpcomings()
         nowPlayingViewModel.fetchNowPlaying()
         configureCollectionView()
+        
+
     }
     
-
+    override func viewWillDisappear(_ animated: Bool) {
+        tableView.removeFromSuperview()
+        searchViewModel.results.removeAll()
+    }
+    
     private let gridThenList = UICollectionViewCompositionalLayout { section, env -> NSCollectionLayoutSection? in
         
         if section == 0 {
@@ -127,3 +144,55 @@ extension MainView: UICollectionViewDataSource {
     }
 }
 
+//MARK:- SearchTableView
+
+extension MainView {
+    func configureTableView(){
+        tableView = UITableView(frame: view.bounds)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.backgroundColor = UIColor.systemBackground
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    func configureSearchController(){
+        searchController.searchBar.delegate = self
+    }
+}
+
+extension MainView: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        view.addSubview(tableView)
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        tableView.removeFromSuperview()
+        searchViewModel.results.removeAll()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count >= 3 {
+            searchViewModel.fetchSearch(with: searchText)
+        }
+    }
+}
+
+extension MainView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "MovieDetailView") as! MovieDetailView
+        detailVC.movieID = searchViewModel.results[indexPath.row].id
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+}
+
+extension MainView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return searchViewModel.results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = searchViewModel.results[indexPath.row].title + " (\(searchViewModel.results[indexPath.row].releaseYear))"
+        
+        return cell
+    }
+}

@@ -28,8 +28,15 @@ class Service {
         }
     }
     
-    func searchMovies(){
-        
+    func searchMovies(with query: String,completionHandler: @escaping (SearchModel) -> ()){
+        AF.request(Constants.baseMovieSearchURL + "?api_key=\(Constants.apiKey)&" + "query=\(query)").responseDecodable(of:SearchModel.self) { response in
+            switch response.result {
+            case .success(let model):
+                completionHandler(model)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
     
     func fetchDetails(with id: Int,completionHandler: @escaping (MovieDetailModel) -> ()) {
