@@ -17,8 +17,8 @@ final class Service {
     
     static let shared = Service()
     
-    func fetchMovies(endpoint: Endpoint,completionHandler: @escaping (MovieModel) -> ()){
-        AF.request(Constants.baseURL + endpoint.rawValue + "?api_key=\(Constants.apiKey)").responseDecodable(of: MovieModel.self) { response in
+    func fetchMovies(endpoint: Endpoint,page: Int,completionHandler: @escaping (MovieModel) -> ()){
+        AF.request(Constants.baseURL + endpoint.rawValue + "?api_key=\(Constants.apiKey)&" + "page=\(page)").responseDecodable(of: MovieModel.self) { response in
             switch response.result {
             case .success(let model):
                 completionHandler(model)

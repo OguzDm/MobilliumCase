@@ -32,6 +32,8 @@ final class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayi
     private let nowPlayingViewModel = NowPlayingMovieViewModel()
     private let searchViewModel = SearchViewModel()
     private let searchController = UISearchController()
+    private var nowPlayingPage = 1
+    private var upComingPage = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,8 +43,8 @@ final class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayi
         searchViewModel.delegate = self
         upComingViewModel.delegate = self
         nowPlayingViewModel.delegate = self
-        upComingViewModel.fetchUpcomings()
-        nowPlayingViewModel.fetchNowPlaying()
+        upComingViewModel.fetchUpcomings(page: upComingPage)
+        nowPlayingViewModel.fetchNowPlaying(page: nowPlayingPage)
         configureCollectionView()
     }
     
@@ -117,6 +119,21 @@ extension MainView: UICollectionViewDelegate {
             navigationController?.pushViewController(detailVC, animated: true)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            if indexPath.item == nowPlayingViewModel.movies.count - 2 {
+                nowPlayingPage += 1
+                nowPlayingViewModel.fetchNowPlaying(page: nowPlayingPage)
+            }
+        default:
+            if indexPath.item == upComingViewModel.movies.count - 2 {
+                upComingPage += 1
+                upComingViewModel.fetchUpcomings(page: upComingPage)
+            }
+        }
+    }
 }
 
 extension MainView: UICollectionViewDataSource {
@@ -134,16 +151,16 @@ extension MainView: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SliderCollectionViewCell.reuseIdentifier, for: indexPath) as! SliderCollectionViewCell
-            cell.configure(image: nowPlayingViewModel.movies[indexPath.item].backdrop_path ?? nowPlayingViewModel.movies[indexPath.item].poster_path,
+            cell.configure(image: nowPlayingViewModel.movies[indexPath.item].backdrop_path ?? nowPlayingViewModel.movies[indexPath.item].poster_path ?? Constants.placeholderURL,
                            name: nowPlayingViewModel.movies[indexPath.item].title + " (\(nowPlayingViewModel.movies[indexPath.item].releaseYear))",
-                           description: nowPlayingViewModel.movies[indexPath.item].overview)
+                           description: nowPlayingViewModel.movies[indexPath.item].overview ?? " ")
             
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.reuseIdentifier, for: indexPath) as! ListCollectionViewCell
-            cell.configure(image: upComingViewModel.movies[indexPath.item].poster_path,
+            cell.configure(image: upComingViewModel.movies[indexPath.item].poster_path ?? Constants.placeholderURL,
                            name: upComingViewModel.movies[indexPath.item].title + " (\(upComingViewModel.movies[indexPath.item].releaseYear))",
-                           description: upComingViewModel.movies[indexPath.item].overview)
+                           description: upComingViewModel.movies[indexPath.item].overview ?? " ")
             return cell
         }
     }

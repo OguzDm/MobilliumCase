@@ -15,9 +15,9 @@ final class NowPlayingMovieViewModel {
     
     weak var delegate: NowPlayingMovieViewModelDelegate?
     var movies = [MovieResults]()
-    func fetchNowPlaying(){
-        Service.shared.fetchMovies(endpoint: .NowPlaying) { response in
-            self.movies = response.results
+    func fetchNowPlaying(page: Int){
+        Service.shared.fetchMovies(endpoint: .NowPlaying,page: page) { response in
+            self.movies.append(contentsOf: response.results)
             self.delegate?.getNowPlayingMovies()
         }
     }
