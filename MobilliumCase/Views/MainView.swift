@@ -95,6 +95,13 @@ final class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayi
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor)
         ])
     }
+    
+    func refreshTable(){
+        searchViewModel.results.removeAll()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
 }
 
 extension MainView: UICollectionViewDelegate {
@@ -165,10 +172,12 @@ extension MainView {
 extension MainView: UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         view.addSubview(tableView)
+        refreshTable()
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         tableView.removeFromSuperview()
-        searchViewModel.results.removeAll()
+        refreshTable()
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -183,6 +192,7 @@ extension MainView: UITableViewDelegate {
         let detailVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "MovieDetailView") as! MovieDetailView
         detailVC.movieID = searchViewModel.results[indexPath.row].id
         navigationController?.pushViewController(detailVC, animated: true)
+        refreshTable()
     }
 }
 
