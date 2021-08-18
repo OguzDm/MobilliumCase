@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ListCollectionViewCell: UICollectionViewCell {
+final class ListCollectionViewCell: UICollectionViewCell {
     
     static let reuseIdentifier = "ListCollectionViewCell"
     
@@ -22,7 +22,7 @@ class ListCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(image: String, name: String, description: String) {
-        guard let imageURL = URL(string: Constants.baseImageURL + image) else {return}
+        guard let imageURL = URL(string: Constants.baseLowResImageURL + image) else {return}
         listImageView.kf.indicatorType = .activity
         listImageView.kf.setImage(with: imageURL)
         movieNameLabel.text = name

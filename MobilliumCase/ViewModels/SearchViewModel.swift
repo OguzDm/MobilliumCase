@@ -11,7 +11,7 @@ protocol SearchViewModelDelegate: AnyObject {
     func getSearchResults()
 }
 
-class SearchViewModel {
+final class SearchViewModel {
     
     weak var delegate: SearchViewModelDelegate?
     var results = [SearchResult]()

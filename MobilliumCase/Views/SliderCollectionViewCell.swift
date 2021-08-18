@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class SliderCollectionViewCell: UICollectionViewCell {
+final class SliderCollectionViewCell: UICollectionViewCell {
 
     static let reuseIdentifier = "SliderCollectionViewCell"
     @IBOutlet weak var sliderImageView: UIImageView!
@@ -21,7 +21,7 @@ class SliderCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(image: String, name: String, description: String){
-        guard let imageURL = URL(string:Constants.baseImageURL + image) else {return}
+        guard let imageURL = URL(string:Constants.baseLowResImageURL + image) else {return}
         sliderImageView.kf.indicatorType = .activity
         sliderImageView.kf.setImage(with: imageURL)
         movieNameLabel.text = name

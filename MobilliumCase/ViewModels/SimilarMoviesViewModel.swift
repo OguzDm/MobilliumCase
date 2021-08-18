@@ -11,7 +11,7 @@ protocol SimilarMoviesViewModelDelegate:AnyObject {
     func getSimilarMovies()
 }
 
-class SimilarMoviesViewModel {
+final class SimilarMoviesViewModel {
     weak var delegate: SimilarMoviesViewModelDelegate?
     var movies = [Similar]()
     func fetchSimilarMovies(with id: Int){

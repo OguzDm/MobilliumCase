@@ -11,7 +11,7 @@ protocol UpcomingMovieViewModelDelegate: AnyObject {
     func getUpcomingMovies()
 }
 
-class UpcomingMovieViewModel {
+final class UpcomingMovieViewModel {
     
     weak var delegate: UpcomingMovieViewModelDelegate?
     var movies = [MovieResults]()

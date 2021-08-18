@@ -11,7 +11,7 @@ protocol NowPlayingMovieViewModelDelegate: AnyObject {
     func getNowPlayingMovies()
 }
 
-class NowPlayingMovieViewModel {
+final class NowPlayingMovieViewModel {
     
     weak var delegate: NowPlayingMovieViewModelDelegate?
     var movies = [MovieResults]()

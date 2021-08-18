@@ -21,8 +21,8 @@ final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate {
     @IBOutlet weak var similiarMoviesLabel: UILabel!
     
     private var collectionView: UICollectionView!
-    let movieDetailViewModel = MovieDetailViewModel()
-    let similarMoviesViewModel = SimilarMoviesViewModel()
+    private let movieDetailViewModel = MovieDetailViewModel()
+    private let similarMoviesViewModel = SimilarMoviesViewModel()
     var movieID : Int?
     override func viewDidLoad() {
         similarMoviesViewModel.delegate = self
@@ -30,6 +30,7 @@ final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate {
         configureCollectionView()
         movieDetailViewModel.fetchDetails(with: movieID!) { response in
             guard let imageURL = URL(string: Constants.baseLowResImageURL + response.backdrop_path) else {return}
+            self.movieImageView.kf.indicatorType = .activity
             self.movieImageView.kf.setImage(with: imageURL)
             self.ratingLabel.text = String(response.vote_average) + "/10"
             self.dateLabel.text = response.release_date
@@ -45,10 +46,11 @@ final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate {
         
     }
     
-    func configureCollectionView(){
+    private func configureCollectionView(){
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.systemBackground
         collectionView.register(UINib.loadNib(name: SimilarCollectionViewCell.reuseIdentifier), forCellWithReuseIdentifier: SimilarCollectionViewCell.reuseIdentifier)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(collectionView)
@@ -62,7 +64,7 @@ final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate {
         ])
     }
     
-    func createLayout() -> UICollectionViewLayout {
+    private func createLayout() -> UICollectionViewLayout {
         let itemSize = NSCollectionLayoutSize(widthDimension: .absolute(104), heightDimension: .absolute(148))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         item.contentInsets = NSDirectionalEdgeInsets(top:0, leading: 0, bottom: 0, trailing: 0)
@@ -78,7 +80,11 @@ final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate {
 }
 
 extension MovieDetailView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "MovieDetailView") as! MovieDetailView
+        detailVC.movieID = similarMoviesViewModel.movies[indexPath.item].id
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension MovieDetailView: UICollectionViewDataSource {

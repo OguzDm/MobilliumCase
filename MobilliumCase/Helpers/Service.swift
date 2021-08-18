@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class Service {
+final class Service {
     
     enum Endpoint: String {
         case Upcoming = "upcoming"

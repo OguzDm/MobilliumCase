@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MovieDetailViewModel {
+final class MovieDetailViewModel {
     
     func fetchDetails(with id: Int,completionHandler: @escaping (MovieDetailModel) -> ()) {
         Service.shared.fetchDetails(with: id) { response in
