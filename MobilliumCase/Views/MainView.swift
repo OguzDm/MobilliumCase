@@ -44,8 +44,6 @@ final class MainView: UIViewController, UpcomingMovieViewModelDelegate, NowPlayi
         upComingViewModel.fetchUpcomings()
         nowPlayingViewModel.fetchNowPlaying()
         configureCollectionView()
-        
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -129,12 +127,16 @@ extension MainView: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SliderCollectionViewCell.reuseIdentifier, for: indexPath) as! SliderCollectionViewCell
-            cell.configure(image: nowPlayingViewModel.movies[indexPath.item].backdrop_path ?? nowPlayingViewModel.movies[indexPath.item].poster_path, name: nowPlayingViewModel.movies[indexPath.item].title + " (\(nowPlayingViewModel.movies[indexPath.item].releaseYear))", description: nowPlayingViewModel.movies[indexPath.item].overview)
+            cell.configure(image: nowPlayingViewModel.movies[indexPath.item].backdrop_path ?? nowPlayingViewModel.movies[indexPath.item].poster_path,
+                           name: nowPlayingViewModel.movies[indexPath.item].title + " (\(nowPlayingViewModel.movies[indexPath.item].releaseYear))",
+                           description: nowPlayingViewModel.movies[indexPath.item].overview)
             
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ListCollectionViewCell.reuseIdentifier, for: indexPath) as! ListCollectionViewCell
-            cell.configure(image: upComingViewModel.movies[indexPath.item].poster_path, name: upComingViewModel.movies[indexPath.item].title + " (\(upComingViewModel.movies[indexPath.item].releaseYear))", description: upComingViewModel.movies[indexPath.item].overview)
+            cell.configure(image: upComingViewModel.movies[indexPath.item].poster_path,
+                           name: upComingViewModel.movies[indexPath.item].title + " (\(upComingViewModel.movies[indexPath.item].releaseYear))",
+                           description: upComingViewModel.movies[indexPath.item].overview)
             return cell
         }
     }

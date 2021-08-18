@@ -7,8 +7,9 @@
 
 import UIKit
 import Kingfisher
+import WebKit
 
-final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate {
+final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate, WKNavigationDelegate {
     func getSimilarMovies() {
             self.collectionView.reloadData()
     }
@@ -20,11 +21,16 @@ final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var similiarMoviesLabel: UILabel!
     
+    private var webView: WKWebView!
     private var collectionView: UICollectionView!
     private let movieDetailViewModel = MovieDetailViewModel()
     private let similarMoviesViewModel = SimilarMoviesViewModel()
     var movieID : Int?
+    var imdbID = ""
+    
     override func viewDidLoad() {
+        webView = WKWebView()
+        webView.navigationDelegate = self
         similarMoviesViewModel.delegate = self
         super.viewDidLoad()
         configureCollectionView()
@@ -36,14 +42,14 @@ final class MovieDetailView: UIViewController, SimilarMoviesViewModelDelegate {
             self.dateLabel.text = response.release_date
             self.nameLabel.text = response.original_title
             self.descriptionLabel.text = response.overview
+            self.imdbID = response.imdb_id
         }
-        
-        
         similarMoviesViewModel.fetchSimilarMovies(with: movieID!)
-        
     }
     @IBAction func imdbButtonTapped(_ sender: UIButton) {
-        
+        let url = URL(string: "https://www.imdb.com/title/\(imdbID)")!
+        webView.load(URLRequest(url: url))
+        view = webView
     }
     
     private func configureCollectionView(){
