@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ListCollectionViewCell" id="gTV-IL-0wX" customClass="ListCollectionViewCell" customModule="MobilliumCase" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="136"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="376" height="136"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oeH-wz-K05">
+                        <rect key="frame" x="0.0" y="0.0" width="376" height="136"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighthouse" translatesAutoresizingMaskIntoConstraints="NO" id="ow7-fn-cMv">
+                                <rect key="frame" x="16" y="16" width="104" height="104"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="104" id="3fZ-5J-Egn"/>
+                                    <constraint firstAttribute="height" constant="104" id="ca5-rK-ZKE"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lighthouse (2019)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R2l-W0-60G">
+                                <rect key="frame" x="128" y="24" width="240" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jep Gambardella has seduced his way through the lavish…" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRK-gD-awm">
+                                <rect key="frame" x="128" y="50" width="240" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="eXo-ua-Acs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ow7-fn-cMv" secondAttribute="bottom" constant="16" id="A1d-G0-KjW"/>
+                            <constraint firstAttribute="trailing" secondItem="KRK-gD-awm" secondAttribute="trailing" constant="8" id="BXl-e5-xXr"/>
+                            <constraint firstItem="KRK-gD-awm" firstAttribute="top" secondItem="R2l-W0-60G" secondAttribute="bottom" constant="8" id="U1V-fF-Cve"/>
+                            <constraint firstItem="ow7-fn-cMv" firstAttribute="leading" secondItem="oeH-wz-K05" secondAttribute="leading" constant="16" id="Vx1-qA-IUG"/>
+                            <constraint firstItem="KRK-gD-awm" firstAttribute="leading" secondItem="ow7-fn-cMv" secondAttribute="trailing" constant="8" id="XoD-tp-Mpv"/>
+                            <constraint firstItem="R2l-W0-60G" firstAttribute="top" secondItem="oeH-wz-K05" secondAttribute="top" constant="24" id="j7C-OI-t0k"/>
+                            <constraint firstAttribute="trailing" secondItem="R2l-W0-60G" secondAttribute="trailing" constant="8" id="ka9-Tp-eHk"/>
+                            <constraint firstItem="ow7-fn-cMv" firstAttribute="top" secondItem="oeH-wz-K05" secondAttribute="top" constant="16" id="vXx-Z7-hw7"/>
+                            <constraint firstItem="R2l-W0-60G" firstAttribute="leading" secondItem="ow7-fn-cMv" secondAttribute="trailing" constant="8" id="zys-dW-5v2"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="oeH-wz-K05" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="9b4-aY-alv"/>
+                <constraint firstAttribute="trailing" secondItem="oeH-wz-K05" secondAttribute="trailing" id="Yqq-po-619"/>
+                <constraint firstAttribute="bottom" secondItem="oeH-wz-K05" secondAttribute="bottom" id="Z6w-cg-td8"/>
+                <constraint firstItem="oeH-wz-K05" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="wsP-hm-Fvd"/>
+            </constraints>
+            <size key="customSize" width="328" height="179"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="KRK-gD-awm" id="HBX-dG-YuL"/>
+                <outlet property="listImageView" destination="ow7-fn-cMv" id="8uM-4M-SQ8"/>
+                <outlet property="movieNameLabel" destination="R2l-W0-60G" id="yJ6-So-6sl"/>
+            </connections>
+            <point key="canvasLocation" x="52.173913043478265" y="168.75"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="lighthouse" width="1024" height="858"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

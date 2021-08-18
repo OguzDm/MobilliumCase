@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SliderCollectionViewCell" id="gTV-IL-0wX" customClass="SliderCollectionViewCell" customModule="MobilliumCase" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLt-CI-OIG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lighthouse" translatesAutoresizingMaskIntoConstraints="NO" id="mxS-X3-keh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                            </imageView>
+                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkd-8T-ZIG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lighthouse (2019)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9x-9h-NW8">
+                                <rect key="frame" x="16" y="152" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A pair of young lovers flee their New England town, which causes a local search party to fan out to find them." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjv-od-hb9">
+                                <rect key="frame" x="16" y="184" width="343" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="qRw-Mn-Odp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Gjv-od-hb9" firstAttribute="leading" secondItem="VLt-CI-OIG" secondAttribute="leading" constant="16" id="160-DD-JHj"/>
+                            <constraint firstAttribute="trailing" secondItem="mxS-X3-keh" secondAttribute="trailing" id="1lf-hI-3PE"/>
+                            <constraint firstItem="mxS-X3-keh" firstAttribute="leading" secondItem="VLt-CI-OIG" secondAttribute="leading" id="PKg-OP-6Um"/>
+                            <constraint firstItem="mxS-X3-keh" firstAttribute="top" secondItem="VLt-CI-OIG" secondAttribute="top" id="PwA-o5-WlD"/>
+                            <constraint firstItem="lkd-8T-ZIG" firstAttribute="top" secondItem="VLt-CI-OIG" secondAttribute="top" id="RDj-Bq-Icg"/>
+                            <constraint firstAttribute="bottom" secondItem="Gjv-od-hb9" secondAttribute="bottom" constant="40" id="VvD-A8-vKj"/>
+                            <constraint firstAttribute="trailing" secondItem="A9x-9h-NW8" secondAttribute="trailing" constant="16" id="dRE-eH-zBk"/>
+                            <constraint firstAttribute="bottom" secondItem="mxS-X3-keh" secondAttribute="bottom" id="hDq-H3-oMQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Gjv-od-hb9" secondAttribute="trailing" constant="16" id="kgv-aH-bRr"/>
+                            <constraint firstItem="Gjv-od-hb9" firstAttribute="top" secondItem="A9x-9h-NW8" secondAttribute="bottom" constant="8" id="q7v-HP-vva"/>
+                            <constraint firstItem="lkd-8T-ZIG" firstAttribute="leading" secondItem="VLt-CI-OIG" secondAttribute="leading" id="vRC-g8-Fvf"/>
+                            <constraint firstItem="A9x-9h-NW8" firstAttribute="leading" secondItem="VLt-CI-OIG" secondAttribute="leading" constant="16" id="wxs-29-YC9"/>
+                            <constraint firstAttribute="trailing" secondItem="lkd-8T-ZIG" secondAttribute="trailing" id="xtm-qA-cTe"/>
+                            <constraint firstAttribute="bottom" secondItem="lkd-8T-ZIG" secondAttribute="bottom" id="yHi-Bu-mql"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="VLt-CI-OIG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="JXm-e1-0E4"/>
+                <constraint firstAttribute="trailing" secondItem="VLt-CI-OIG" secondAttribute="trailing" id="YOH-08-luC"/>
+                <constraint firstItem="VLt-CI-OIG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vEq-sp-Aq9"/>
+                <constraint firstAttribute="bottom" secondItem="VLt-CI-OIG" secondAttribute="bottom" id="wOL-Wz-ofR"/>
+            </constraints>
+            <size key="customSize" width="322" height="169"/>
+            <connections>
+                <outlet property="descriptionNameLabel" destination="Gjv-od-hb9" id="nKD-Kl-YZG"/>
+                <outlet property="movieNameLabel" destination="A9x-9h-NW8" id="XGE-zx-Afh"/>
+                <outlet property="sliderImageView" destination="mxS-X3-keh" id="O7a-QD-ruJ"/>
+            </connections>
+            <point key="canvasLocation" x="303.62318840579712" y="102.45535714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="lighthouse" width="1024" height="858"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
